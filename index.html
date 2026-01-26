@@ -22,7 +22,7 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <script defer src="js/main.js"></script>
+    <script defer type="module" src="js/main.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -42,7 +42,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="w-100 d-flex justify-content-end gap-2" role="search">
+          <div class="w-100 d-flex justify-content-end gap-2" role="search">
             <button
               class="btn btn-outline-primary"
               data-bs-toggle="modal"
@@ -89,9 +89,9 @@
                             >First Name</label
                           >
                           <input
+                            id="firstNameRegisterForm"
                             type="text"
                             class="form-control"
-                            id="FirstName"
                             placeholder="Enter First Name"
                             required
                           />
@@ -101,9 +101,9 @@
                             >Last Name</label
                           >
                           <input
+                            id="lastNameRegisterForm"
                             type="text"
                             class="form-control"
-                            id="LastName"
                             placeholder="Enter Last Name"
                             required
                           />
@@ -113,9 +113,9 @@
                       <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input
+                          id="emailRegisterForm"
                           type="email"
                           class="form-control"
-                          id="email"
                           placeholder="Enter Email"
                           required
                         />
@@ -126,9 +126,9 @@
                           >Password</label
                         >
                         <input
+                          id="passwordRegisterForm"
                           type="password"
                           class="form-control"
-                          id="password"
                           placeholder="Enter Password"
                           required
                         />
@@ -180,13 +180,13 @@
 
                   <!-- Modal Body -->
                   <div class="modal-body">
-                    <form id="registerForm">
+                    <form id="loginForm">
                       <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input
                           type="email"
                           class="form-control"
-                          id="email"
+                          id="emailLoginForm"
                           placeholder="Enter Email"
                           required
                         />
@@ -199,7 +199,7 @@
                         <input
                           type="password"
                           class="form-control"
-                          id="password"
+                          id="passwordLoginForm"
                           placeholder="Enter Password"
                           required
                         />
@@ -228,7 +228,7 @@
               <!-- modal-dialog -->
             </div>
             <!-- Login Modal -->
-          </form>
+          </div>
         </div>
       </div>
     </nav>
