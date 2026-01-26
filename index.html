@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="js/main.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="images/logo.png" alt="logo" height="50px" width="150" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="w-100 d-flex justify-content-end gap-2" role="search">
+            <button
+              class="btn btn-outline-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#loginmodal"
+            >
+              Login
+            </button>
+
+            <!-- Register Button -->
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#registermodal"
+            >
+              Register
+            </button>
+
+            <!-- Register Modal -->
+            <div
+              class="modal fade modal-lg"
+              id="registermodal"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h5 class="modal-title">Register</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+
+                  <!-- Modal Body -->
+                  <div class="modal-body">
+                    <form id="registerForm">
+                      <div class="mb-3 d-flex gap-2">
+                        <div style="flex: 1">
+                          <label for="FirstName" class="form-label"
+                            >First Name</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="FirstName"
+                            placeholder="Enter First Name"
+                            required
+                          />
+                        </div>
+                        <div style="flex: 1">
+                          <label for="LastName" class="form-label"
+                            >Last Name</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="LastName"
+                            placeholder="Enter Last Name"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email"
+                          placeholder="Enter Email"
+                          required
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="password" class="form-label"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          placeholder="Enter Password"
+                          required
+                        />
+                      </div>
+
+                      <button type="submit" class="btn btn-primary mb-3">
+                        Register
+                      </button>
+                      <p class="text-muted m-0">
+                        Have an account?
+                        <a
+                          href="#loginmodal"
+                          data-bs-toggle="modal"
+                          data-bs-dismiss="modal"
+                          class="text-primary"
+                          style="text-decoration: none"
+                          >Login</a
+                        >
+                      </p>
+                    </form>
+                  </div>
+                  <!-- modal-body -->
+                </div>
+                <!-- modal-content -->
+              </div>
+              <!-- modal-dialog -->
+            </div>
+            <!-- Register Modal -->
+
+            <!-- Login Modal -->
+            <div
+              class="modal fade modal-lg"
+              id="loginmodal"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+
+                  <!-- Modal Body -->
+                  <div class="modal-body">
+                    <form id="registerForm">
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="email"
+                          placeholder="Enter Email"
+                          required
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="password" class="form-label"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          placeholder="Enter Password"
+                          required
+                        />
+                      </div>
+
+                      <button type="submit" class="btn btn-primary mb-3">
+                        Login
+                      </button>
+                      <p class="text-muted m-0">
+                        Don't have an account?
+                        <a
+                          href="#registermodal"
+                          data-bs-toggle="modal"
+                          data-bs-dismiss="modal"
+                          class="text-primary"
+                          style="text-decoration: none"
+                          >Register</a
+                        >
+                      </p>
+                    </form>
+                  </div>
+                  <!-- modal-body -->
+                </div>
+                <!-- modal-content -->
+              </div>
+              <!-- modal-dialog -->
+            </div>
+            <!-- Login Modal -->
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-5 px-5">
+      <form class="d-flex gap-3 mb-5" role="search">
+        <select id="select" class="p-1">
+          <option value="product">Search by product Name</option>
+          <option value="category">Search by Category</option>
+        </select>
+        <input
+          id="search"
+          value=""
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-light fw-semibold">Search</button>
+      </form>
+
+      <div id="cardgroup" class="row g-4">
+        <!-- Card  -->
+        <!-- <div class="col-4">
+          <div class="card product-card text-center">
+            <img
+              src="images/ClassicWatche1.png"
+              class="card-img-top object-fit-contain mt-4 mb-2"
+              alt="Chrono Classic Watch"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Chrono Classic Watch</h5>
+              <p class="price">Price: $250</p>
+              <p class="category">Category: Watches</p>
+            </div>
+            <div
+              class="card-footer d-flex justify-content-between align-items-center"
+            >
+              <i class="bi bi-heart"></i>
+              <button class="btn btn-outline-primary rounded-pill">Add to Cart</button>
+            </div>
+          </div>
+        </div> -->
+        <!-- card -->
+      </div>
+    </div>
+  </body>
+</html>
