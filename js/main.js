@@ -107,12 +107,27 @@ function showLoginButton() {
             </button>`;
 }
 
+function calcCartProductsCount() {
+  let count = 0;
+  users[userIndex].cart.forEach((ele) => {
+    count += ele.count;
+  });
+  return count;
+}
+
 function showLogoutButton(userName) {
   const firstName = userName.match(/^[a-zA-Z]+(?=\s)/)[0];
   loginGroup.innerHTML = `<h6 class="user align-self-center m-0 p-0">Hello, ${firstName}</h6>
             <div class="cart-container align-self-center mx-3 p-0">
-              <i class="cart bi bi-cart"></i>
-              <div class="cart-state fw-semibold">${users[userIndex].cart.length}</div>
+              <a href="" data-bs-toggle="dropdown" data-bs-auto-close="outside" id="cart" class="text-body"
+                ><i class="cart bi bi-cart"></i
+              ></a>
+              <nav
+                class="dropdown-menu p-2"
+                style="transform: translate(-100px, 5px)"
+              ><ul id="cart-group" class="m-0 p-0 d-flex flex-column gap-2 w-100 h-100"></ul>
+              </nav>
+              <div class="cart-state fw-semibold cart-count">${calcCartProductsCount()}</div>
             </div>
             <button class="btn btn-outline-danger rounded-pill">Logout</button>`;
 
@@ -120,8 +135,85 @@ function showLogoutButton(userName) {
     isLogin = false;
     showLoginButton();
     renderCards(cardsData);
+  });
 
-    // alert(`Logout`);
+  if (calcCartProductsCount()) {
+    loginGroup.querySelector(".cart-state").classList.remove("d-none");
+  } else {
+    loginGroup.querySelector(".cart-state").classList.add("d-none");
+  }
+
+  const cart = document.getElementById("cart");
+  const cartGroup = document.getElementById("cart-group");
+  console.log("Hazem");
+  cart.addEventListener("click", () => {
+    cartGroup.innerHTML = "";
+    if (calcCartProductsCount()) {
+      users[userIndex].cart.forEach((ele) => {
+        const listItem = document.createElement("li");
+        listItem.classList.add("dropdown-item", "p-2");
+        listItem.innerHTML = `<div class="d-flex justify-content-between gap-2 px-2">
+                    <p class="fw-semibold d-flex align-items-center m-0 product-cart text-wrap">
+                      ${ele.product}
+                    </p>
+                    <div
+                      class="d-flex flex-column justify-content-center align-items-center"
+                    >
+                      <p class="p-0 m-0">Price:</p>
+                      <p class="p-0 m-0">${ele.price}</p>
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2 m-0 mt-2">
+                    <a href="#" class="product-control product-control-decrease">-</a>
+                    <p class="p-0 m-0 d-flex align-items-center show-count">${ele.count}</p>
+                    <a href="#" class="product-control product-control-increase">+</a>
+                  </div>`;
+
+        const btnIncrease = listItem.querySelector(".product-control-increase");
+        btnIncrease.addEventListener("click", () => {
+          console.log("clicked");
+          listItem.querySelector(".show-count").innerHTML = `${++ele.count}`;
+          loginGroup.querySelector(".cart-count").innerHTML =
+            `${calcCartProductsCount()}`;
+        });
+
+        const btndecrease = listItem.querySelector(".product-control-decrease");
+        btndecrease.addEventListener("click", () => {
+          console.log("clicked");
+          if (ele.count > 1) {
+            listItem.querySelector(".show-count").innerHTML = `${--ele.count}`;
+            console.log(ele.count);
+          } else {
+            listItem.querySelector(".show-count").innerHTML = `${--ele.count}`;
+            const index = users[userIndex].cart.findIndex(
+              (e) => e.product === ele.product,
+            );
+            users[userIndex].cart.splice(index, 1);
+            cartGroup.removeChild(listItem);
+            renderCards(cardsData);
+            if (!calcCartProductsCount()) {
+              emptyCard();
+              loginGroup.querySelector(".cart-state").classList.add("d-none");
+            }
+          }
+          loginGroup.querySelector(".cart-count").innerHTML =
+            `${calcCartProductsCount()}`;
+        });
+        cartGroup.append(listItem);
+      });
+    } else {
+      emptyCard();
+    }
+
+    function emptyCard() {
+      cartGroup.innerHTML = `
+          <li class="dropdown-item text-center py-4 text-muted">
+            <i class="bi bi-cart-x fs-3 mb-2 d-block"></i>
+            <p class="m-0 fw-semibold">Your cart is empty</p>
+            <small class="text-wrap">Add some products to see them here</small>
+          </li>
+        `;
+    }
   });
 }
 
@@ -220,6 +312,7 @@ function createCard({ id, img, product, price, category, favorite }) {
       product: product,
       count: 1,
       category: category,
+      price: price,
     });
   }
 

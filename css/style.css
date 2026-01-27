@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
+  text-decoration: none !important;
   list-style: none;
 }
 
@@ -39,6 +39,32 @@
 .cart-container:hover .cart-state {
   transform: translateY(-3px);
 }
+
+.dropdown-item {
+  width: 200px !important;
+  background-color: #ddd !important;
+  border-radius: 10px !important;
+}
+
+.product-control {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc !important;
+  color: #333;
+}
+
+.product-control:hover {
+  background-color: #bbb !important;
+}
+
+#cart-group {
+  max-height: 400px;
+  overflow: auto;
+}
+
 
 input:not(.modal input),
 select {
