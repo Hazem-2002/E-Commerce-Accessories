@@ -42,7 +42,19 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="w-100 d-flex justify-content-end gap-2" role="search">
+          <div
+            class="w-100 d-flex justify-content-end gap-2 group"
+            role="search"
+            id="userLogin"
+          >
+            <!-- <h6 class="user align-self-center m-0 p-0">Hello, World</h6>
+            <div class="cart-container align-self-center mx-3 p-0">
+              <i class="cart bi bi-cart"></i>
+              <div class="cart-state fw-semibold">3</div>
+            </div>
+            <button class="btn btn-outline-danger rounded-pill">Logout</button> -->
+
+
             <button
               class="btn btn-outline-primary"
               data-bs-toggle="modal"
@@ -51,7 +63,6 @@
               Login
             </button>
 
-            <!-- Register Button -->
             <button
               class="btn btn-primary"
               data-bs-toggle="modal"
@@ -59,176 +70,171 @@
             >
               Register
             </button>
-
-            <!-- Register Modal -->
-            <div
-              class="modal fade modal-lg"
-              id="registermodal"
-              tabindex="-1"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <!-- Modal Header -->
-                  <div class="modal-header">
-                    <h5 class="modal-title">Register</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-
-                  <!-- Modal Body -->
-                  <div class="modal-body">
-                    <form id="registerForm">
-                      <div class="mb-3 d-flex gap-2">
-                        <div style="flex: 1">
-                          <label for="FirstName" class="form-label"
-                            >First Name</label
-                          >
-                          <input
-                            id="firstNameRegisterForm"
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter First Name"
-                            required
-                          />
-                        </div>
-                        <div style="flex: 1">
-                          <label for="LastName" class="form-label"
-                            >Last Name</label
-                          >
-                          <input
-                            id="lastNameRegisterForm"
-                            type="text"
-                            class="form-control"
-                            placeholder="Enter Last Name"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input
-                          id="emailRegisterForm"
-                          type="email"
-                          class="form-control"
-                          placeholder="Enter Email"
-                          required
-                        />
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="password" class="form-label"
-                          >Password</label
-                        >
-                        <input
-                          id="passwordRegisterForm"
-                          type="password"
-                          class="form-control"
-                          placeholder="Enter Password"
-                          required
-                        />
-                      </div>
-
-                      <button type="submit" class="btn btn-primary mb-3">
-                        Register
-                      </button>
-                      <p class="text-muted m-0">
-                        Have an account?
-                        <a
-                          href="#loginmodal"
-                          data-bs-toggle="modal"
-                          data-bs-dismiss="modal"
-                          class="text-primary"
-                          style="text-decoration: none"
-                          >Login</a
-                        >
-                      </p>
-                    </form>
-                  </div>
-                  <!-- modal-body -->
-                </div>
-                <!-- modal-content -->
-              </div>
-              <!-- modal-dialog -->
-            </div>
-            <!-- Register Modal -->
-
-            <!-- Login Modal -->
-            <div
-              class="modal fade modal-lg"
-              id="loginmodal"
-              tabindex="-1"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <!-- Modal Header -->
-                  <div class="modal-header">
-                    <h5 class="modal-title">Login</h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-
-                  <!-- Modal Body -->
-                  <div class="modal-body">
-                    <form id="loginForm">
-                      <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="emailLoginForm"
-                          placeholder="Enter Email"
-                          required
-                        />
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="password" class="form-label"
-                          >Password</label
-                        >
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="passwordLoginForm"
-                          placeholder="Enter Password"
-                          required
-                        />
-                      </div>
-
-                      <button type="submit" class="btn btn-primary mb-3">
-                        Login
-                      </button>
-                      <p class="text-muted m-0">
-                        Don't have an account?
-                        <a
-                          href="#registermodal"
-                          data-bs-toggle="modal"
-                          data-bs-dismiss="modal"
-                          class="text-primary"
-                          style="text-decoration: none"
-                          >Register</a
-                        >
-                      </p>
-                    </form>
-                  </div>
-                  <!-- modal-body -->
-                </div>
-                <!-- modal-content -->
-              </div>
-              <!-- modal-dialog -->
-            </div>
-            <!-- Login Modal -->
           </div>
+          <!-- Register Modal -->
+          <div
+            class="modal fade modal-lg"
+            id="registermodal"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h5 class="modal-title">Register</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                  <form id="registerForm">
+                    <div class="mb-3 d-flex gap-2">
+                      <div style="flex: 1">
+                        <label for="FirstName" class="form-label"
+                          >First Name</label
+                        >
+                        <input
+                          id="firstNameRegisterForm"
+                          type="text"
+                          class="form-control"
+                          placeholder="Enter First Name"
+                          required
+                        />
+                      </div>
+                      <div style="flex: 1">
+                        <label for="LastName" class="form-label"
+                          >Last Name</label
+                        >
+                        <input
+                          id="lastNameRegisterForm"
+                          type="text"
+                          class="form-control"
+                          placeholder="Enter Last Name"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input
+                        id="emailRegisterForm"
+                        type="email"
+                        class="form-control"
+                        placeholder="Enter Email"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input
+                        id="passwordRegisterForm"
+                        type="password"
+                        class="form-control"
+                        placeholder="Enter Password"
+                        required
+                      />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mb-3">
+                      Register
+                    </button>
+                    <p class="text-muted m-0">
+                      Have an account?
+                      <a
+                        href="#loginmodal"
+                        data-bs-toggle="modal"
+                        data-bs-dismiss="modal"
+                        class="text-primary"
+                        style="text-decoration: none"
+                        >Login</a
+                      >
+                    </p>
+                  </form>
+                </div>
+                <!-- modal-body -->
+              </div>
+              <!-- modal-content -->
+            </div>
+            <!-- modal-dialog -->
+          </div>
+          <!-- Register Modal -->
+
+          <!-- Login Modal -->
+          <div
+            class="modal fade modal-lg"
+            id="loginmodal"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h5 class="modal-title">Login</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                  <form id="loginForm">
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="emailLoginForm"
+                        placeholder="Enter Email"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="passwordLoginForm"
+                        placeholder="Enter Password"
+                        required
+                      />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mb-3">
+                      Login
+                    </button>
+                    <p class="text-muted m-0">
+                      Don't have an account?
+                      <a
+                        href="#registermodal"
+                        data-bs-toggle="modal"
+                        data-bs-dismiss="modal"
+                        class="text-primary"
+                        style="text-decoration: none"
+                        >Register</a
+                      >
+                    </p>
+                  </form>
+                </div>
+                <!-- modal-body -->
+              </div>
+              <!-- modal-content -->
+            </div>
+            <!-- modal-dialog -->
+          </div>
+          <!-- Login Modal -->
         </div>
       </div>
     </nav>
