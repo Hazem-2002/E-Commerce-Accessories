@@ -26,6 +26,10 @@ registermodal.addEventListener("hidden.bs.modal", () => {
 registerForm.addEventListener("submit", (e) => {
   e.preventDefault();
   users.push(Object.assign({}, userInfo, { cart: [] }, { favorite: [] }));
+  localStorage.setItem(
+    userInfo.email,
+    JSON.stringify(Object.assign({}, userInfo, { cart: [] }, { favorite: [] })),
+  );
   userInfo = {};
   alert("Account Created Successfully!");
   bootstrap.Modal.getInstance(registermodal).hide();

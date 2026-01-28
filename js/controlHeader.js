@@ -1,5 +1,5 @@
 import { reRenderCards } from "./main.js";
-import { logout, getUser } from "./loginForm.js";
+import { logout, getUser, editUser } from "./loginForm.js";
 
 const loginGroup = document.getElementById("userLogin");
 
@@ -38,10 +38,10 @@ function calcCartProductsCount() {
 
 export function showUserProfileHeader(userName) {
   const firstName = userName.match(/^[a-zA-Z]+(?=\s)/)[0];
-  loginGroup.innerHTML = `<h6 class="user align-self-center m-0 p-0">Hello, ${firstName}</h6>
+  loginGroup.innerHTML = `<h6 class="user-title align-self-center m-0 p-0">Hello, ${firstName}</h6>
             <div class="cart-container align-self-center mx-3 p-0">
               <a href="" data-bs-toggle="dropdown" data-bs-auto-close="outside" id="cart" class="text-body"
-                ><i class="cart bi bi-cart"></i
+                ><i class="cart-icon bi bi-cart"></i
               ></a>
               <nav
                 class="dropdown-menu p-2"
@@ -89,9 +89,14 @@ export function showUserProfileHeader(userName) {
                     <a href="#" class="product-control product-control-increase">+</a>
                   </div>`;
 
+        listItem.addEventListener("click", (e) => {
+          e.preventDefault();
+        });
+
         const btnIncrease = listItem.querySelector(".product-control-increase");
         btnIncrease.addEventListener("click", () => {
           listItem.querySelector(".show-count").innerHTML = `${++ele.count}`;
+          editUser(getUser());
           loginGroup.querySelector(".cart-count").innerHTML =
             `${calcCartProductsCount()}`;
         });
@@ -100,12 +105,14 @@ export function showUserProfileHeader(userName) {
         btndecrease.addEventListener("click", () => {
           if (ele.count > 1) {
             listItem.querySelector(".show-count").innerHTML = `${--ele.count}`;
+            editUser(getUser());
           } else {
             listItem.querySelector(".show-count").innerHTML = `${--ele.count}`;
             const index = getUser().cart.findIndex(
               (e) => e.product === ele.product,
             );
             getUser().cart.splice(index, 1);
+            editUser(getUser());
             cartGroup.removeChild(listItem);
             reRenderCards();
             if (!calcCartProductsCount()) {

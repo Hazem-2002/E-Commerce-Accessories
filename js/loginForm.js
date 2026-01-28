@@ -10,6 +10,7 @@ const passwordLoginForm = document.getElementById("passwordLoginForm");
 const userLogin = {};
 export let isLogin = false;
 export let userIndex;
+let user;
 
 loginmodal.addEventListener("hidden.bs.modal", () => {
   registerForm.reset();
@@ -26,12 +27,12 @@ loginmodal.addEventListener("hidden.bs.modal", () => {
 
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  userIndex = users.findIndex((c) => c.email === userLogin.email);
-  if (userIndex != -1) {
-    if (userLogin.password === users[userIndex].password) {
+  user = JSON.parse(localStorage.getItem(userLogin.email));
+  if (user) {
+    if (userLogin.password === user.password) {
       isLogin = true;
       bootstrap.Modal.getInstance(loginmodal).hide();
-      showUserProfileHeader(users[userIndex].name);
+      showUserProfileHeader(user.name);
       reRenderCards();
     } else {
       passwordLoginForm.classList.add("is-invalid");
@@ -56,5 +57,11 @@ export function logout() {
 }
 
 export function getUser() {
-  return users[userIndex];
+  return user;
+}
+
+export function editUser(userAfterEdit) {
+  console.log(user);
+  localStorage.removeItem(user.email);
+  localStorage.setItem(userAfterEdit.email, JSON.stringify(userAfterEdit));
 }

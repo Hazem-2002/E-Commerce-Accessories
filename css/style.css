@@ -11,22 +11,27 @@ body {
   color: #fff;
 }
 
+/* ---------------- HEADER -------------- */
+
+.user-title {
+  text-transform: capitalize;
+}
+
 .cart-container {
   position: relative;
 }
 
-.cart {
-  position: relative;
+.cart-container #cart .cart-icon {
   font-size: 22px;
   transition: all 0.3s ease;
 }
 
-.cart-container:hover .cart {
+.cart-container:hover #cart .cart-icon {
   transform: scale(1.5);
   color: #0d6efd;
 }
 
-.cart-state {
+.cart-container .cart-state {
   width: 18px;
   height: 18px;
   display: flex;
@@ -45,13 +50,24 @@ body {
   transform: translateY(-3px);
 }
 
-.dropdown-item {
+.cart-container #cart-group {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.cart-container #cart-group .dropdown-item {
   width: 200px !important;
   background-color: #ddd !important;
   border-radius: 10px !important;
 }
 
-.product-control {
+.cart-container #cart-group .dropdown-item:active,
+.cart-container #cart-group .dropdown-item:focus,
+.cart-container #cart-group .dropdown-item:hover {
+  color: inherit !important;
+}
+
+.cart-container #cart-group .dropdown-item .product-control {
   display: flex;
   width: 30px;
   height: 30px;
@@ -61,14 +77,11 @@ body {
   color: #333;
 }
 
-.product-control:hover {
+.cart-container #cart-group .dropdown-item .product-control:hover {
   background-color: #bbb !important;
 }
 
-#cart-group {
-  max-height: 400px;
-  overflow: auto;
-}
+/* ---------------- Body -------------- */
 
 input:not(.modal input),
 select {
@@ -140,8 +153,4 @@ input::placeholder {
 
 .product-card i:hover {
   transform: scale(1.2);
-}
-
-.user {
-  text-transform: capitalize;
 }

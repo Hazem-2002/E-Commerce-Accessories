@@ -1,4 +1,4 @@
-import { isLogin, getUser } from "./loginForm.js";
+import { isLogin, getUser, editUser } from "./loginForm.js";
 import { showUserProfileHeader } from "./controlHeader.js";
 
 export function createCard({ id, img, product, price, category, favorite }) {
@@ -64,11 +64,13 @@ export function createCard({ id, img, product, price, category, favorite }) {
       category: category,
       price: price,
     });
+    editUser(getUser());
   }
 
   function removeFromCart(productIndex) {
     btnCartState(true);
     getUser().cart.splice(productIndex, 1);
+    editUser(getUser());
   }
 
   btnCart.addEventListener("click", () => {
@@ -109,11 +111,12 @@ export function createCard({ id, img, product, price, category, favorite }) {
         productIsUserFavorite(false);
         const index = getUser().favorite.findIndex((ele) => ele == product);
         getUser().favorite.splice(index, 1);
+        editUser(getUser());
       } else {
         productIsUserFavorite(true);
         getUser().favorite.push(product);
+        editUser(getUser());
       }
-      console.log(getUser());
     }
   });
 
