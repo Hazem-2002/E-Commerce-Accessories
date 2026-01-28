@@ -134,6 +134,9 @@
                           placeholder="Enter First Name"
                           required
                         />
+                        <div class="invalid-feedback">
+                          name must be at least 3 letters
+                        </div>
                       </div>
                       <div style="flex: 1">
                         <label for="LastName" class="form-label"
@@ -146,6 +149,9 @@
                           placeholder="Enter Last Name"
                           required
                         />
+                        <div class="invalid-feedback">
+                          name must be at least 3 letters
+                        </div>
                       </div>
                     </div>
 
@@ -158,6 +164,9 @@
                         placeholder="Enter Email"
                         required
                       />
+                      <div class="invalid-feedback">
+                        Email must be in the format: name@example.com
+                      </div>
                     </div>
 
                     <div class="mb-3">
@@ -169,6 +178,7 @@
                         placeholder="Enter Password"
                         required
                       />
+                      <div class="invalid-feedback">Must be 6+ characters</div>
                     </div>
 
                     <button type="submit" class="btn btn-primary mb-3">
@@ -227,6 +237,9 @@
                         placeholder="Enter Email"
                         required
                       />
+                      <div class="invalid-feedback">
+                        This email does not exist
+                      </div>
                     </div>
 
                     <div class="mb-3">
@@ -238,6 +251,7 @@
                         placeholder="Enter Password"
                         required
                       />
+                      <div class="invalid-feedback">Incorrect password</div>
                     </div>
 
                     <button type="submit" class="btn btn-primary mb-3">

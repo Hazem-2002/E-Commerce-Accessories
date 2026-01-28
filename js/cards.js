@@ -95,14 +95,39 @@ export function createCard({ id, img, product, price, category, favorite }) {
 
   const heart = div.querySelector("i");
 
-  heart.addEventListener("click", () => {
-    heart.classList.toggle("bi-heart");
-    heart.classList.toggle("bi-heart-fill");
-    heart.classList.toggle("text-danger");
+  if (isLogin) {
+    if (getUser().favorite.includes(product)) {
+      productIsUserFavorite(true);
+    } else {
+      productIsUserFavorite(false);
+    }
+  }
 
-    const card = cardsData.find((c) => c.id === id);
-    card.favorite = !card.favorite;
+  heart.addEventListener("click", () => {
+    if (isLogin) {
+      if (getUser().favorite.includes(product)) {
+        productIsUserFavorite(false);
+        const index = getUser().favorite.findIndex((ele) => ele == product);
+        getUser().favorite.splice(index, 1);
+      } else {
+        productIsUserFavorite(true);
+        getUser().favorite.push(product);
+      }
+      console.log(getUser());
+    }
   });
+
+  function productIsUserFavorite(isFavorite) {
+    if (isFavorite) {
+      heart.classList.add("bi-heart-fill");
+      heart.classList.add("text-danger");
+      heart.classList.remove("bi-heart");
+    } else {
+      heart.classList.remove("bi-heart-fill");
+      heart.classList.remove("text-danger");
+      heart.classList.add("bi-heart");
+    }
+  }
 
   return div;
 }

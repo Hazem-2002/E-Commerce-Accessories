@@ -5,7 +5,6 @@ export const cardsData = [
     product: "Chrono Classic Watch",
     price: "$250",
     category: "Watches",
-    favorite: false,
   },
   {
     id: 2,
@@ -13,7 +12,6 @@ export const cardsData = [
     product: "Noir Leather Watch",
     price: "$180",
     category: "Watches",
-    favorite: false,
   },
   {
     id: 3,
@@ -21,7 +19,6 @@ export const cardsData = [
     product: "Silver Edge Watch",
     price: "$300",
     category: "Watches",
-    favorite: false,
   },
   {
     id: 4,
@@ -29,7 +26,6 @@ export const cardsData = [
     product: "Minimal Steel Watch",
     price: "$220",
     category: "Watches",
-    favorite: false,
   },
   {
     id: 5,
@@ -37,7 +33,6 @@ export const cardsData = [
     product: "Oud Royale",
     price: "$220",
     category: "Perfumes",
-    favorite: false,
   },
   {
     id: 6,
@@ -45,7 +40,6 @@ export const cardsData = [
     product: "Silver Bracelets",
     price: "$80",
     category: "Jewelry",
-    favorite: false,
   },
   {
     id: 7,
@@ -53,7 +47,6 @@ export const cardsData = [
     product: "Black Bracelets",
     price: "$65",
     category: "Jewelry",
-    favorite: false,
   },
   {
     id: 8,
@@ -61,7 +54,6 @@ export const cardsData = [
     product: "Necklaces",
     price: "$350",
     category: "Jewelry",
-    favorite: false,
   },
   {
     id: 9,
@@ -69,6 +61,5 @@ export const cardsData = [
     product: "Rings",
     price: "$400",
     category: "Jewelry",
-    favorite: false,
   },
 ];

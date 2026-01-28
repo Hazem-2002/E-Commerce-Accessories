@@ -11,6 +11,19 @@ const userLogin = {};
 export let isLogin = false;
 export let userIndex;
 
+loginmodal.addEventListener("hidden.bs.modal", () => {
+  registerForm.reset();
+
+  const inputs = loginForm.querySelectorAll("input");
+  inputs.forEach((input) => {
+    input.classList.remove("is-invalid", "is-valid");
+  });
+
+  loginForm.classList.remove("was-validated");
+  emailLoginForm.value = "";
+  passwordLoginForm.value = "";
+});
+
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   userIndex = users.findIndex((c) => c.email === userLogin.email);
