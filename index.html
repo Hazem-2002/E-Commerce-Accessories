@@ -25,10 +25,16 @@
     <script defer type="module" src="js/main.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
+    <nav
+      class="navbar navbar-expand-lg"
+      style="
+        background-color: #3b3b3b;
+        border-bottom: 2px solid rgba(212, 175, 55, 0.25);
+      "
+    >
+      <div class="container-fluid px-5">
         <a class="navbar-brand" href="#">
-          <img src="images/logo.png" alt="logo" height="50px" width="150" />
+          <img src="images/logo.png" alt="logo" height="50px" width="80" />
         </a>
         <button
           class="navbar-toggler"
@@ -43,7 +49,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div
-            class="w-100 d-flex justify-content-end gap-2 group"
+            class="w-100 d-flex justify-content-end gap-3 group"
             role="search"
             id="userLogin"
           >
@@ -84,7 +90,7 @@
             <button class="btn btn-outline-danger rounded-pill">Logout</button> -->
 
             <button
-              class="btn btn-outline-primary"
+              class="btn btn-outline-warning rounded-pill"
               data-bs-toggle="modal"
               data-bs-target="#loginmodal"
             >
@@ -92,7 +98,7 @@
             </button>
 
             <button
-              class="btn btn-primary"
+              class="btn btn-warning rounded-pill"
               data-bs-toggle="modal"
               data-bs-target="#registermodal"
             >
@@ -107,13 +113,18 @@
             aria-hidden="true"
           >
             <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
+              <div
+                class="modal-content"
+                style="background-color: #242424 !important ; color: white"
+              >
                 <!-- Modal Header -->
                 <div class="modal-header">
-                  <h5 class="modal-title">Register</h5>
+                  <h5 class="modal-title" style="color: #d4af37 !important">
+                    Register
+                  </h5>
                   <button
                     type="button"
-                    class="btn-close"
+                    class="btn-close btn-close-white"
                     data-bs-dismiss="modal"
                     aria-label="Close"
                   ></button>
@@ -164,7 +175,7 @@
                         placeholder="Enter Email"
                         required
                       />
-                      <div class="invalid-feedback">
+                      <div class="invalid-feedback" id="email-feedback">
                         Email must be in the format: name@example.com
                       </div>
                     </div>
@@ -181,17 +192,17 @@
                       <div class="invalid-feedback">Must be 6+ characters</div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary mb-3">
+                    <button type="submit" class="btn btn-warning mb-3">
                       Register
                     </button>
-                    <p class="text-muted m-0">
+                    <p class="text-muted m-0" style="color: #bbb !important">
                       Have an account?
                       <a
                         href="#loginmodal"
                         data-bs-toggle="modal"
                         data-bs-dismiss="modal"
                         class="text-primary"
-                        style="text-decoration: none"
+                        style="text-decoration: none; color: #d4af37 !important"
                         >Login</a
                       >
                     </p>
@@ -213,13 +224,18 @@
             aria-hidden="true"
           >
             <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
+              <div
+                class="modal-content"
+                style="background-color: #242424 !important ; color: white"
+              >
                 <!-- Modal Header -->
                 <div class="modal-header">
-                  <h5 class="modal-title">Login</h5>
+                  <h5 class="modal-title" style="color: #d4af37 !important">
+                    Login
+                  </h5>
                   <button
                     type="button"
-                    class="btn-close"
+                    class="btn-close btn-close-white"
                     data-bs-dismiss="modal"
                     aria-label="Close"
                   ></button>
@@ -254,17 +270,17 @@
                       <div class="invalid-feedback">Incorrect password</div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary mb-3">
+                    <button type="submit" class="btn btn-warning mb-3">
                       Login
                     </button>
-                    <p class="text-muted m-0">
+                    <p class="text-muted m-0" style="color: #bbb !important">
                       Don't have an account?
                       <a
                         href="#registermodal"
                         data-bs-toggle="modal"
                         data-bs-dismiss="modal"
                         class="text-primary"
-                        style="text-decoration: none"
+                        style="text-decoration: none; color: #d4af37 !important"
                         >Register</a
                       >
                     </p>
@@ -322,5 +338,56 @@
         <!-- card -->
       </div>
     </div>
+    <footer class="site-footer mt-5">
+      <div class="container py-5">
+        <div class="row gy-4">
+          <!-- Brand -->
+          <div class="col-md-4">
+            <img src="images/logo.png" alt="Aurum & Co" height="80" />
+            <p class="mt-3 small" style="color: #d4af37">
+              AURUM & CO. offers premium watches, perfumes, and jewelry crafted
+              for timeless elegance.
+            </p>
+          </div>
+
+          <!-- Links -->
+          <div class="col-md-2">
+            <h6 class="footer-title">Shop</h6>
+            <ul class="footer-links">
+              <li><a href="#">Watches</a></li>
+              <li><a href="#">Perfumes</a></li>
+              <li><a href="#">Bracelets</a></li>
+              <li><a href="#">Rings</a></li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div class="col-md-3">
+            <h6 class="footer-title">Company</h6>
+            <ul class="footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+          </div>
+
+          <!-- Social -->
+          <div class="col-md-3">
+            <h6 class="footer-title">Follow Us</h6>
+            <div class="d-flex gap-3 footer-social">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-divider m-0 p-0" />
+
+      <div class="text-center small py-4" style="background: #3a3a3a">
+        © 2026 AURUM & CO. All rights reserved.
+      </div>
+    </footer>
   </body>
 </html>

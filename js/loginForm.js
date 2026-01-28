@@ -12,6 +12,10 @@ export let isLogin = false;
 export let userIndex;
 let user;
 
+loginmodal.addEventListener("shown.bs.modal", () => {
+  loginmodal.querySelector("input").focus();
+});
+
 loginmodal.addEventListener("hidden.bs.modal", () => {
   registerForm.reset();
 

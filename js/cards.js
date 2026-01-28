@@ -17,7 +17,7 @@ export function createCard({ id, img, product, price, category, favorite }) {
 
       <div class="card-footer d-flex justify-content-between align-items-center">
        <i class="bi ${favorite ? "bi-heart-fill text-danger" : "bi-heart"}"></i>
-       <button class="btn btn-outline-primary rounded-pill">
+       <button class="btn btn-outline-warning rounded-pill">
           Add to Cart
         </button>
       </div>
@@ -47,11 +47,11 @@ export function createCard({ id, img, product, price, category, favorite }) {
   function btnCartState(addState) {
     if (addState) {
       btnCart.innerText = "Add to Cart";
-      btnCart.classList.add("btn-outline-primary");
+      btnCart.classList.add("btn-outline-warning");
       btnCart.classList.remove("btn-outline-danger");
     } else {
       btnCart.innerText = "Remove From Cart";
-      btnCart.classList.remove("btn-outline-primary");
+      btnCart.classList.remove("btn-outline-warning");
       btnCart.classList.add("btn-outline-danger");
     }
   }
@@ -117,6 +117,8 @@ export function createCard({ id, img, product, price, category, favorite }) {
         getUser().favorite.push(product);
         editUser(getUser());
       }
+    } else {
+      new bootstrap.Modal(loginmodal).show();
     }
   });
 

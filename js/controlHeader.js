@@ -7,16 +7,15 @@ const loginGroup = document.getElementById("userLogin");
 
 function showLoginButton() {
   loginGroup.innerHTML = `<button
-              class="btn btn-outline-primary"
+              class="btn btn-outline-warning rounded-pill"
               data-bs-toggle="modal"
               data-bs-target="#loginmodal"
             >
               Login
             </button>
 
-            <!-- Register Button -->
             <button
-              class="btn btn-primary"
+              class="btn btn-warning rounded-pill"
               data-bs-toggle="modal"
               data-bs-target="#registermodal"
             >
@@ -88,10 +87,6 @@ export function showUserProfileHeader(userName) {
                     <p class="p-0 m-0 d-flex align-items-center show-count">${ele.count}</p>
                     <a href="#" class="product-control product-control-increase">+</a>
                   </div>`;
-
-        listItem.addEventListener("click", (e) => {
-          e.preventDefault();
-        });
 
         const btnIncrease = listItem.querySelector(".product-control-increase");
         btnIncrease.addEventListener("click", () => {
