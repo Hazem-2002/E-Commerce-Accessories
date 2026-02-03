@@ -63,6 +63,7 @@ export function createCard({ id, img, product, price, category, favorite }) {
       count: 1,
       category: category,
       price: price,
+      img: img,
     });
     editUser(getUser());
   }
@@ -136,3 +137,5 @@ export function createCard({ id, img, product, price, category, favorite }) {
 
   return div;
 }
+
+// ---------------------------------------------------------------------

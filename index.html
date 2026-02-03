@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
       rel="stylesheet"
     />
@@ -25,326 +30,297 @@
     <script defer type="module" src="js/main.js"></script>
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-lg"
-      style="
-        background-color: #3b3b3b;
-        border-bottom: 2px solid rgba(212, 175, 55, 0.25);
-      "
-    >
-      <div class="container-fluid px-5">
-        <a class="navbar-brand" href="#">
-          <img src="images/logo.png" alt="logo" height="50px" width="80" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div
-            class="w-100 d-flex justify-content-end gap-3 group"
-            role="search"
-            id="userLogin"
-          >
-            <!-- <h6 class="user-title align-self-center m-0 p-0">Hello, World</h6>
-            <div class="cart-container align-self-center mx-3 p-0">
-              <a href="" data-bs-toggle="dropdown" id="cart"
-                ><i class="cart-icon bi bi-cart"></i
-              ></a>
-              <ul
-                class="dropdown-menu p-2"
-                style="transform: translate(-70px, 5px)"
-                id="cart-group"
-              >
-                <li class="dropdown-item p-2">
-                  <div class="d-flex justify-content-between gap-2 px-2">
-                    <p class="fw-semibold d-flex align-items-center m-0">
-                      Product
-                    </p>
-                    <div
-                      class="d-flex flex-column justify-content-center align-items-center"
-                    >
-                      <p class="p-0 m-0">Price:</p>
-                      <p class="p-0 m-0">$150</p>
-                    </div>
-                  </div>
-                  <div class="d-flex gap-2 m-0 mt-2">
-                    <a href="" class="product-control">-</a>
-                    <p class="p-0 m-0 d-flex align-items-center">
-                      1
-                    </p>
-                    <a href="" class="product-control">+</a>
-                  </div>
-                </li>
-              </ul>
-
-              <div class="cart-state fw-semibold">3</div>
-            </div>
-            <button class="btn btn-outline-danger rounded-pill">Logout</button> -->
-
-            <button
-              class="btn btn-outline-warning rounded-pill"
-              data-bs-toggle="modal"
-              data-bs-target="#loginmodal"
-            >
-              Login
-            </button>
-
-            <button
-              class="btn btn-warning rounded-pill"
-              data-bs-toggle="modal"
-              data-bs-target="#registermodal"
-            >
-              Register
-            </button>
-          </div>
-          <!-- Register Modal -->
-          <div
-            class="modal fade modal-lg"
-            id="registermodal"
-            tabindex="-1"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div
-                class="modal-content"
-                style="background-color: #242424 !important ; color: white"
-              >
-                <!-- Modal Header -->
-                <div class="modal-header">
-                  <h5 class="modal-title" style="color: #d4af37 !important">
-                    Register
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-
-                <!-- Modal Body -->
-                <div class="modal-body">
-                  <form id="registerForm">
-                    <div class="mb-3 d-flex gap-2">
-                      <div style="flex: 1">
-                        <label for="FirstName" class="form-label"
-                          >First Name</label
-                        >
-                        <input
-                          id="firstNameRegisterForm"
-                          type="text"
-                          class="form-control"
-                          placeholder="Enter First Name"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          name must be at least 3 letters
-                        </div>
-                      </div>
-                      <div style="flex: 1">
-                        <label for="LastName" class="form-label"
-                          >Last Name</label
-                        >
-                        <input
-                          id="lastNameRegisterForm"
-                          type="text"
-                          class="form-control"
-                          placeholder="Enter Last Name"
-                          required
-                        />
-                        <div class="invalid-feedback">
-                          name must be at least 3 letters
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="email" class="form-label">Email</label>
-                      <input
-                        id="emailRegisterForm"
-                        type="email"
-                        class="form-control"
-                        placeholder="Enter Email"
-                        required
-                      />
-                      <div class="invalid-feedback" id="email-feedback">
-                        Email must be in the format: name@example.com
-                      </div>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input
-                        id="passwordRegisterForm"
-                        type="password"
-                        class="form-control"
-                        placeholder="Enter Password"
-                        required
-                      />
-                      <div class="invalid-feedback">Must be 6+ characters</div>
-                    </div>
-
-                    <button type="submit" class="btn btn-warning mb-3">
-                      Register
-                    </button>
-                    <p class="text-muted m-0" style="color: #bbb !important">
-                      Have an account?
-                      <a
-                        href="#loginmodal"
-                        data-bs-toggle="modal"
-                        data-bs-dismiss="modal"
-                        class="text-primary"
-                        style="text-decoration: none; color: #d4af37 !important"
-                        >Login</a
-                      >
-                    </p>
-                  </form>
-                </div>
-                <!-- modal-body -->
-              </div>
-              <!-- modal-content -->
-            </div>
-            <!-- modal-dialog -->
-          </div>
-          <!-- Register Modal -->
-
-          <!-- Login Modal -->
-          <div
-            class="modal fade modal-lg"
-            id="loginmodal"
-            tabindex="-1"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div
-                class="modal-content"
-                style="background-color: #242424 !important ; color: white"
-              >
-                <!-- Modal Header -->
-                <div class="modal-header">
-                  <h5 class="modal-title" style="color: #d4af37 !important">
-                    Login
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-
-                <!-- Modal Body -->
-                <div class="modal-body">
-                  <form id="loginForm">
-                    <div class="mb-3">
-                      <label for="email" class="form-label">Email</label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="emailLoginForm"
-                        placeholder="Enter Email"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        This email does not exist
-                      </div>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="passwordLoginForm"
-                        placeholder="Enter Password"
-                        required
-                      />
-                      <div class="invalid-feedback">Incorrect password</div>
-                    </div>
-
-                    <button type="submit" class="btn btn-warning mb-3">
-                      Login
-                    </button>
-                    <p class="text-muted m-0" style="color: #bbb !important">
-                      Don't have an account?
-                      <a
-                        href="#registermodal"
-                        data-bs-toggle="modal"
-                        data-bs-dismiss="modal"
-                        class="text-primary"
-                        style="text-decoration: none; color: #d4af37 !important"
-                        >Register</a
-                      >
-                    </p>
-                  </form>
-                </div>
-                <!-- modal-body -->
-              </div>
-              <!-- modal-content -->
-            </div>
-            <!-- modal-dialog -->
-          </div>
-          <!-- Login Modal -->
-        </div>
-      </div>
-    </nav>
-    <div class="container mt-5 px-5">
-      <form class="d-flex gap-3 mb-5" role="search">
-        <select id="select" class="p-1">
-          <option value="product">Search by product Name</option>
-          <option value="category">Search by Category</option>
-        </select>
-        <input
-          id="search"
-          value=""
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-light fw-semibold">Search</button>
-      </form>
-
-      <div id="cardgroup" class="row g-4">
-        <!-- Card  -->
-        <!-- <div class="col-4">
-          <div class="card product-card text-center">
-            <img
-              src="images/ClassicWatche1.png"
-              class="card-img-top object-fit-contain mt-4 mb-2"
-              alt="Chrono Classic Watch"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Chrono Classic Watch</h5>
-              <p class="price">Price: $250</p>
-              <p class="category">Category: Watches</p>
-            </div>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg"
+        style="
+          background-color: #3b3b3b;
+          border-bottom: 2px solid rgba(212, 175, 55, 0.25);
+        "
+      >
+        <div class="container-fluid px-5">
+          <a class="navbar-brand d-flex align-items-stretch gap-2" href="#">
             <div
-              class="card-footer d-flex justify-content-between align-items-center"
+              class="home-back d-none px-3 d-flex align-items-center justify-content-center"
             >
-              <i class="bi bi-heart"></i>
-              <button class="btn btn-outline-primary rounded-pill">Add to Cart</button>
+              <i class="fa-solid fa-chevron-left"></i>
             </div>
+            <img src="images/logo.png" alt="logo" height="50px" width="80" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div
+              class="w-100 d-flex justify-content-end gap-3 group"
+              role="search"
+              id="userLogin"
+            >
+              <button
+                class="btn btn-outline-warning rounded-pill"
+                data-bs-toggle="modal"
+                data-bs-target="#loginmodal"
+              >
+                Login
+              </button>
+
+              <button
+                class="btn btn-warning rounded-pill"
+                data-bs-toggle="modal"
+                data-bs-target="#registermodal"
+              >
+                Register
+              </button>
+            </div>
+
+            <!-- Register Modal -->
+            <div
+              class="modal fade modal-lg"
+              id="registermodal"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div
+                  class="modal-content"
+                  style="background-color: #242424 !important ; color: white"
+                >
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h5 class="modal-title" style="color: #d4af37 !important">
+                      Register
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close btn-close-white"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+
+                  <!-- Modal Body -->
+                  <div class="modal-body">
+                    <form id="registerForm">
+                      <div class="mb-3 d-flex gap-2">
+                        <div style="flex: 1">
+                          <label for="FirstName" class="form-label"
+                            >First Name</label
+                          >
+                          <input
+                            id="firstNameRegisterForm"
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter First Name"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            name must be at least 3 letters
+                          </div>
+                        </div>
+                        <div style="flex: 1">
+                          <label for="LastName" class="form-label"
+                            >Last Name</label
+                          >
+                          <input
+                            id="lastNameRegisterForm"
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter Last Name"
+                            required
+                          />
+                          <div class="invalid-feedback">
+                            name must be at least 3 letters
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input
+                          id="emailRegisterForm"
+                          type="email"
+                          class="form-control"
+                          placeholder="Enter Email"
+                          required
+                        />
+                        <div class="invalid-feedback" id="email-feedback">
+                          Email must be in the format: name@example.com
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="password" class="form-label"
+                          >Password</label
+                        >
+                        <input
+                          id="passwordRegisterForm"
+                          type="password"
+                          class="form-control"
+                          placeholder="Enter Password"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Must be 6+ characters
+                        </div>
+                      </div>
+
+                      <button type="submit" class="btn btn-warning mb-3">
+                        Register
+                      </button>
+                      <p class="text-muted m-0" style="color: #bbb !important">
+                        Have an account?
+                        <a
+                          href="#loginmodal"
+                          data-bs-toggle="modal"
+                          data-bs-dismiss="modal"
+                          class="text-primary"
+                          style="
+                            text-decoration: none;
+                            color: #d4af37 !important;
+                          "
+                          >Login</a
+                        >
+                      </p>
+                    </form>
+                  </div>
+                  <!-- modal-body -->
+                </div>
+                <!-- modal-content -->
+              </div>
+              <!-- modal-dialog -->
+            </div>
+            <!-- Register Modal -->
+
+            <!-- Login Modal -->
+            <div
+              class="modal fade modal-lg"
+              id="loginmodal"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div
+                  class="modal-content"
+                  style="background-color: #242424 !important ; color: white"
+                >
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h5 class="modal-title" style="color: #d4af37 !important">
+                      Login
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close btn-close-white"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+
+                  <!-- Modal Body -->
+                  <div class="modal-body">
+                    <form id="loginForm">
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="emailLoginForm"
+                          placeholder="Enter Email"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          This email does not exist
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="password" class="form-label"
+                          >Password</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="passwordLoginForm"
+                          placeholder="Enter Password"
+                          required
+                        />
+                        <div class="invalid-feedback">Incorrect password</div>
+                      </div>
+
+                      <button type="submit" class="btn btn-warning mb-3">
+                        Login
+                      </button>
+                      <p class="text-muted m-0" style="color: #bbb !important">
+                        Don't have an account?
+                        <a
+                          href="#registermodal"
+                          data-bs-toggle="modal"
+                          data-bs-dismiss="modal"
+                          class="text-primary"
+                          style="
+                            text-decoration: none;
+                            color: #d4af37 !important;
+                          "
+                          >Register</a
+                        >
+                      </p>
+                    </form>
+                  </div>
+                  <!-- modal-body -->
+                </div>
+                <!-- modal-content -->
+              </div>
+              <!-- modal-dialog -->
+            </div>
+            <!-- Login Modal -->
           </div>
-        </div> -->
-        <!-- card -->
+        </div>
+      </nav>
+    </header>
+
+    <section id="home">
+      <div class="container mt-5 px-5">
+        <form class="d-flex gap-3 mb-5" role="search">
+          <select id="select" class="p-1">
+            <option value="product">Search by product Name</option>
+            <option value="category">Search by Category</option>
+          </select>
+          <input
+            id="search"
+            value=""
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-light fw-semibold">Search</button>
+        </form>
+
+        <div id="cardgroup" class="row g-4"></div>
       </div>
-    </div>
+    </section>
+
+    <section id="products" class="d-none">
+      <div class="container my-5">
+        <div id="cartProductsgroup" class="row g-4"></div>
+      </div>
+    </section>
+
     <footer class="site-footer mt-5">
       <div class="container py-5">
         <div class="row gy-4">
           <!-- Brand -->
           <div class="col-md-4">
             <img src="images/logo.png" alt="Aurum & Co" height="80" />
-            <p class="mt-3 small" style="color: #d4af37">
+            <p class="mt-3 small" style="color: #d4af37;">
               AURUM & CO. offers premium watches, perfumes, and jewelry crafted
               for timeless elegance.
             </p>

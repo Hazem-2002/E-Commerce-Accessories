@@ -65,7 +65,6 @@ export function getUser() {
 }
 
 export function editUser(userAfterEdit) {
-  console.log(user);
   localStorage.removeItem(user.email);
   localStorage.setItem(userAfterEdit.email, JSON.stringify(userAfterEdit));
 }

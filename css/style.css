@@ -13,6 +13,14 @@ body {
 
 /* ---------------- HEADER -------------- */
 
+.home-back {
+  color: #888;
+}
+
+.home-back:hover {
+  color: #d4af37;
+}
+
 .user-title {
   text-transform: capitalize;
   color: #ddd;
@@ -45,6 +53,7 @@ body {
   top: -3px;
   overflow: hidden;
   background-color: red;
+  color: #eee;
   transition: all 0.5s ease;
 }
 
@@ -55,6 +64,23 @@ body {
 .cart-container #cart-group {
   max-height: 400px;
   overflow: auto;
+}
+
+.cart-container #cart-group::-webkit-scrollbar {
+  position: absolute !important;
+  right: 0;
+  width: 3px;
+}
+
+.cart-container #cart-group::-webkit-scrollbar-track {
+  background: #777;
+  border-radius: 10px;
+}
+
+.cart-container #cart-group::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
 .cart-container nav {
@@ -85,6 +111,19 @@ body {
 
 .cart-container #cart-group .dropdown-item .product-control:hover {
   background-color: #999 !important;
+}
+
+.cart-container #cart-group .btn-display-cart-products {
+  background-color: #bbb;
+  text-align: center;
+  margin-top: 5px;
+  color: #222;
+  padding: 2px 0;
+  border-radius: 999px;
+}
+
+.cart-container #cart-group .btn-display-cart-products:hover {
+  background-color: #aaa !important;
 }
 
 /* ---------------- Body -------------- */
@@ -163,6 +202,57 @@ input::placeholder {
 
 .product-card i:hover {
   transform: scale(1.2);
+}
+
+/* ---------------- Products Page -------------- */
+
+#products .product-control {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 3px #d4af37;
+  color: #eee;
+}
+
+#products .product-control:hover {
+  background-color: #555;
+}
+
+.cart-summary {
+  margin-top: 40px !important;
+  padding: 25px 45px;
+  background: linear-gradient(145deg, #1f1f1f, #2a2a2a);
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: 0.3s ease;
+}
+
+.cart-summary:hover {
+  transform: translateY(-3px);
+  box-shadow: 5px 5px 10px rgba(212, 175, 55, 0.15);
+}
+
+.cart-summary span {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  color: #bbb;
+  letter-spacing: 1px;
+  margin-right: 10px;
+}
+
+.cart-summary h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #d4af37;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
 }
 
 /* ---------------- Footer -------------- */

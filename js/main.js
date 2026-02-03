@@ -1,5 +1,5 @@
 import { cardsData } from "./cardData.js";
-import { createCard } from "./cards.js";
+import { createCard } from "./homeCards.js";
 
 // -----------------------------------------------------------
 const cardGroup = document.getElementById("cardgroup");
