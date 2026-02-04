@@ -99,7 +99,7 @@ export function createCard({ id, img, product, price, category, favorite }) {
   const heart = div.querySelector("i");
 
   if (isLogin) {
-    if (getUser().favorite.includes(product)) {
+    if (checkProductIsExistInFavorite(product)) {
       productIsUserFavorite(true);
     } else {
       productIsUserFavorite(false);
@@ -108,20 +108,29 @@ export function createCard({ id, img, product, price, category, favorite }) {
 
   heart.addEventListener("click", () => {
     if (isLogin) {
-      if (getUser().favorite.includes(product)) {
+      if (checkProductIsExistInFavorite(product)) {
         productIsUserFavorite(false);
-        const index = getUser().favorite.findIndex((ele) => ele == product);
+        const index = getUser().favorite.findIndex((ele) => ele.product == product);
         getUser().favorite.splice(index, 1);
         editUser(getUser());
       } else {
         productIsUserFavorite(true);
-        getUser().favorite.push(product);
+        getUser().favorite.push({
+          product: product,
+          price: price,
+          category: category,
+          img: img,
+        });
         editUser(getUser());
       }
     } else {
       new bootstrap.Modal(loginmodal).show();
     }
   });
+
+  function checkProductIsExistInFavorite(product) {
+    return getUser().favorite.some((ele) => ele.product === product);
+  }
 
   function productIsUserFavorite(isFavorite) {
     if (isFavorite) {

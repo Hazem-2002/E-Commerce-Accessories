@@ -120,6 +120,7 @@ body {
   color: #222;
   padding: 2px 0;
   border-radius: 999px;
+  font-size: 15px;
 }
 
 .cart-container #cart-group .btn-display-cart-products:hover {
@@ -127,10 +128,6 @@ body {
 }
 
 /* ---------------- Body -------------- */
-
-input:focus {
-  box-shadow: 0 0 10px #d4af37 !important;
-}
 
 input,
 select {
@@ -143,11 +140,15 @@ input::placeholder {
   color: #ccc !important;
 }
 
+input:focus {
+  box-shadow: 0 0 10px #d4af37 !important;
+}
+
 .product-card {
   background-color: #2f2f2f !important;
   border-radius: 14px !important;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.65s ease;
+  transition: all 0.35s ease;
   overflow: hidden;
 }
 
@@ -163,7 +164,7 @@ input::placeholder {
 }
 
 .product-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.085);
 }
 
 .product-card .card-title {
@@ -201,12 +202,39 @@ input::placeholder {
 }
 
 .product-card i:hover {
-  transform: scale(1.2);
+  transform: scale(1.2) !important;
 }
 
 /* ---------------- Products Page -------------- */
 
-#products .product-control {
+#products .favorite-title {
+  width: fit-content;
+  color: #ccc;
+  position: relative;
+  margin: 0 auto 33px;
+}
+
+#products .favorite-title::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -10px;
+  left: 0;
+  background-color: #d4af37;
+  transition: all 0.2s ease;
+}
+
+#products .favorite-title:hover::before {
+  left: -15%;
+  width: 130%;
+}
+
+#products .product-card:hover img {
+  transform: scale(1.17);
+}
+
+#products .product-card .product-control {
   display: flex;
   width: 30px;
   height: 30px;
@@ -216,11 +244,11 @@ input::placeholder {
   color: #eee;
 }
 
-#products .product-control:hover {
+#products .product-card .product-control:hover {
   background-color: #555;
 }
 
-.cart-summary {
+#products .cart-summary {
   margin-top: 40px !important;
   padding: 25px 45px;
   background: linear-gradient(145deg, #1f1f1f, #2a2a2a);
@@ -232,12 +260,12 @@ input::placeholder {
   transition: 0.3s ease;
 }
 
-.cart-summary:hover {
+#products .cart-summary:hover {
   transform: translateY(-3px);
   box-shadow: 5px 5px 10px rgba(212, 175, 55, 0.15);
 }
 
-.cart-summary span {
+#products .cart-summary span {
   display: block;
   width: 100%;
   font-weight: bold;
@@ -247,12 +275,89 @@ input::placeholder {
   margin-right: 10px;
 }
 
-.cart-summary h2 {
+#products .cart-summary h2 {
   margin: 0;
   font-size: 28px;
   font-weight: bold;
   color: #d4af37;
   text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+#products .divider {
+  border-top: 1px solid #aaa;
+  margin: 48px 0 35px !important;
+}
+
+#favoritesgroup {
+  position: relative;
+  padding: 16px 4px;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 15px;
+}
+
+#favoritesgroup .favorite-card {
+  width: 250px;
+  flex: 0 0 auto;
+}
+
+#favoritesgroup::-webkit-scrollbar {
+  height: 5px !important;
+}
+
+#favoritesgroup::-webkit-scrollbar-track {
+  background: #333;
+  border-radius: 10px;
+}
+
+#favoritesgroup::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 10px;
+}
+
+#favoritesgroup::-webkit-scrollbar-thumb:hover {
+  height: 7px !important;
+  background: rgba(212, 175, 55, 0.65);
+}
+
+/* Empty Favorite Item */
+#favoritesgroup .default-favorite {
+  width: 60%;
+  border-radius: 12px;
+  margin: 8px;
+  padding: 20px 15px !important;
+  color: #aaa !important;
+  transition: 0.3s ease;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  text-align: center;
+}
+
+#favoritesgroup .default-favorite i {
+  color: #d4af37;
+  font-size: 28px;
+  opacity: 0.85;
+  transition: 0.3s;
+}
+
+#favoritesgroup .default-favorite p {
+  color: #ddd;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+#favoritesgroup .default-favorite small {
+  font-size: 12px;
+  color: #999;
+}
+
+#favoritesgroup .default-favorite:hover {
+  background: linear-gradient(145deg, #222, #2a2a2a);
+  border-color: rgba(212, 175, 55, 0.35);
+  transform: translateY(-2px);
 }
 
 /* ---------------- Footer -------------- */

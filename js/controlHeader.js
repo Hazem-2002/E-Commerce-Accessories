@@ -1,6 +1,7 @@
 import { reRenderCards } from "./main.js";
 import { logout, getUser, editUser } from "./loginForm.js";
 import { renderCartProducts } from "./cartProductsCards.js";
+import { renderFavoriteProductsCards } from "./favoritesCards.js";
 
 const loginGroup = document.getElementById("userLogin");
 const productsSection = document.getElementById("products");
@@ -13,12 +14,16 @@ let cartGroup;
 const homeBack = document.querySelector(".home-back");
 homeBack.addEventListener("click", (e) => {
   e.preventDefault();
+  homebackHandler();
+});
+
+export function homebackHandler() {
   productsSection.classList.add("d-none");
   homeBack.classList.add("d-none");
   document.querySelector("footer").classList.remove("d-none");
   homeSection.classList.remove("d-none");
   reRenderCards();
-});
+}
 
 // -----------------------------------------------------------
 
@@ -176,6 +181,7 @@ export function showUserProfileHeader(userName) {
         homeBack.classList.remove("d-none");
         homeSection.classList.add("d-none");
         renderCartProducts();
+        renderFavoriteProductsCards();
       });
     } else {
       emptyCard();
