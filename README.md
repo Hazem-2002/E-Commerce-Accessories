@@ -23,11 +23,11 @@ The project simulates a real shopping experience with authentication, cart manag
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d1e7e82d-835b-44ae-8fe7-4a3b40591bb5" width="45%" />
-  <img src="https://github.com/user-attachments/assets/b624301f-32a0-485e-8da8-0e62c8102d7b" width="60%" />
+  <img src="https://github.com/user-attachments/assets/b624301f-32a0-485e-8da8-0e62c8102d7b" width="45%" />
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/fa254267-b1d2-438a-816e-f766d67df9e6" width="45%" />
+  <img src="https://github.com/user-attachments/assets/fa254267-b1d2-438a-816e-f766d67df9e6" width="100%" />
 </p>
 
 ---
